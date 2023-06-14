@@ -10,6 +10,8 @@ let package = Package(
         .library(
             name: "QuickViewClient",
             targets: ["QuickViewClient"]),
+        
+            .library(name: "QuickViewSwiftUI", targets: ["QuickViewSwiftUI"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,6 +23,9 @@ let package = Package(
         .target(
             name: "QuickViewClient",
             dependencies: []),
+        
+            .target(name: "QuickViewSwiftUI"),
+        
         .testTarget(
             name: "QuickViewClientTests",
             dependencies: ["QuickViewClient"]),
