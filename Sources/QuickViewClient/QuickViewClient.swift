@@ -1,14 +1,14 @@
 import Foundation
 
-struct PreviewObject: Codable {
+public struct PreviewObject: Codable {
     var description: String
     var img: Data?
 }
 
 @available(macOS 10.15.0, *)
-final class QuickViewClient {
+public final class QuickViewClient {
     
-    init(clientID: String,
+    public init(clientID: String,
          hostname: String = "localhost",
          port: Int = 3434) {
         self.clientID = clientID
