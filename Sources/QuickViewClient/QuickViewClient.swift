@@ -1,6 +1,11 @@
 import Foundation
 
 public struct PreviewObject: Codable {
+    public init(description: String, img: Data? = nil) {
+        self.description = description
+        self.img = img
+    }
+    
     var description: String
     var img: Data?
 }
