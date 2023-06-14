@@ -20,7 +20,7 @@ public final class QuickViewClient {
     let port: Int
     let hostname: String
     
-    func updateQuickView(_ previewObject: PreviewObject) async throws {
+    public func updateQuickView(_ previewObject: PreviewObject) async throws {
         guard let url = URL(string: "http://\(hostname):\(port)/img/\(clientID)") else {
             throw NSError(domain: "Invalid URL", code: -1, userInfo: nil)
         }
