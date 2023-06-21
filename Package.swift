@@ -11,7 +11,9 @@ let package = Package(
             name: "QuickViewClient",
             targets: ["QuickViewClient"]),
         
-            .library(name: "QuickViewSwiftUI", targets: ["QuickViewSwiftUI"])
+        .library(name: "QuickViewSwiftUI", targets: ["QuickViewSwiftUI"]),
+        .library(name: "PluginInterface", targets: ["PluginInterface"]),
+        .library(name: "ImageOverlayPlugin", type: .dynamic, targets: ["ImageOverlayPlugin"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,8 +26,13 @@ let package = Package(
             name: "QuickViewClient",
             dependencies: []),
         
-            .target(name: "QuickViewSwiftUI"),
+        .target(name: "QuickViewSwiftUI"),
+        .target(name: "PluginInterface"),
         
+        .target(name: "ImageOverlayPlugin", dependencies: [
+            "PluginInterface"
+        ]),
+
         .testTarget(
             name: "QuickViewClientTests",
             dependencies: ["QuickViewClient"]),
