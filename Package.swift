@@ -29,9 +29,13 @@ let package = Package(
         .target(name: "QuickViewSwiftUI"),
         .target(name: "PluginInterface"),
         
-        .target(name: "ImageOverlayPlugin", dependencies: [
-            "PluginInterface"
-        ]),
+        .target(name: "ImageOverlayPlugin",
+                dependencies: [
+                    "PluginInterface"
+                ],
+                swiftSettings: [
+                    .unsafeFlags(["-emit-module", "-emit-library"]),
+                ]),
 
         .testTarget(
             name: "QuickViewClientTests",

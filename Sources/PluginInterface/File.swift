@@ -12,6 +12,8 @@ import SwiftUI
 @available(macOS 10.15.0, *)
 public protocol ImageOverlayPlugin {
     var preview: AnyView { get }
+    
+    func render(_: Data?) -> AnyView 
 }
 
 @available(macOS 10.15.0, *)
