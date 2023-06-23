@@ -42,8 +42,10 @@ struct ImageOverlay: View {
 }
  
 
-@available(macOS 12.0, *)
+@available(macOS 13.0, *)
 struct Provider: ImageOverlayPlugin {
+    
+    var sidebar: AnyView? {  AnyView(Sidebar()) }
     
     func render(_ data: Data?) -> AnyView {
          AnyView(SwiftUIVieew(img: data))
@@ -53,7 +55,7 @@ struct Provider: ImageOverlayPlugin {
 }
 
 
-@available(macOS 12.0, *)
+@available(macOS 13.0, *)
 public final class Builder: PluginBuilder {
 
     public override func build() -> ImageOverlayPlugin {
@@ -61,7 +63,7 @@ public final class Builder: PluginBuilder {
     }
 }
 
-@available(macOS 12.0, *)
+@available(macOS 13.0, *)
 @_cdecl("createPlugin")
 public func createPlugin() -> UnsafeMutableRawPointer {
     return Unmanaged.passRetained(Builder()).toOpaque()
