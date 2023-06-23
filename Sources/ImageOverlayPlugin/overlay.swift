@@ -21,7 +21,7 @@ struct SwiftUIView: View {
 @available(macOS 12.0, *)
 struct ImageOverlay: View {
     var img: Data?
-    
+
     var body: some View {
         ZStack {
             if let img_d = img, let i = NSImage(data: img_d) {
@@ -31,21 +31,22 @@ struct ImageOverlay: View {
             }
             
             Text("Hell Yeah.")
-                .frame(maxHeight: .infinity, alignment: .bottom)
                 .padding(.vertical, 30)
                 .padding(.horizontal, 100)
                 .background(.thinMaterial)
                 .cornerRadius(15)
                 .padding(.bottom)
+                .frame(maxHeight: .infinity, alignment: .bottom)
         }
     }
 }
+ 
 
 @available(macOS 12.0, *)
 struct Provider: ImageOverlayPlugin {
     
     func render(_ data: Data?) -> AnyView {
-         AnyView(ImageOverlay(img: data))
+         AnyView(SwiftUIVieew(img: data))
     }
     
     var preview: AnyView { AnyView(SwiftUIView()) }

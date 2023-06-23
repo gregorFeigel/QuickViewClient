@@ -12,7 +12,7 @@ import SwiftUI
 @available(macOS 10.15.0, *)
 public protocol ImageOverlayPlugin {
     var preview: AnyView { get }
-    
+    var sidebar: AnyView? { get }
     func render(_: Data?) -> AnyView 
 }
 
